@@ -25,20 +25,46 @@ Install version 0.0.1:
 
 `az extension add --source 'https://github.com/azure-nginx/azure-nginx-cli/raw/master/dist/azure_nginx_cli-0.0.1-py2.py3-none-any.whl'`
 
-## Usage
+## Command-Line Usage
+
+```bash
+Command
+    az nginx deploy
+
+Arguments
+    --location -l    [Required]: Location. You can configure the default location using az
+                                 configure --defaults location=<location>.
+    --name           [Required]
+    --node-count     [Required]
+    --node-sku       [Required]
+    --resource-group [Required]
+    --custom-subnet-id
+    --server-address           : Default: http://localhost:8080.
+
+Global Arguments
+    --debug                    : Increase logging verbosity to show all debug logs.
+    --help -h                  : Show this help message and exit.
+    --output -o                : Output format.  Allowed values: json, jsonc, table, tsv.  Default:
+                                 json.
+    --query                    : JMESPath query string. See http://jmespath.org/ for more
+                                 information and examples.
+    --verbose                  : Increase logging verbosity. Use --debug for full debug logs.
+```
+
+## Usage Examples
 
 The azure-nginx CLI needs to interact with the Azure Nginx Service Provisioner.
 Unless specified, the CLI will assume it is running on localhost:8080.
 
-### deploying an nginx cluster of 2 nodes in eastus
+### deploy an nginx cluster of 2 nodes in eastus
 
 `az nginx deploy --name "nginxclusterdemo" --resource-group "nginx-rg" --node-count 2 --node-sku "Standard_D1_V2" --location "eastus"`
 
-### deploying in a custom vnet
+### deploy in a custom vnet
 
 `az nginx deploy --custom-subnet-id "<id-of-custom-subnet>" --name "nginxclusterdemo" --resource-group "nginx-rg" --node-count 2 --node-sku "Standard_D1_V2" --location "eastus"`
 
-### deploying with a remote service provisioner
+### deploy with a remote service provisioner
 
 `az nginx deploy --server-address "<ip-or-fqdn-of-service-provisioner>" --name "nginxclusterdemo" --resource-group "nginx-rg" --node-count 2 --node-sku "Standard_D1_V2" --location "eastus"`
 
