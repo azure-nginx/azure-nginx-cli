@@ -23,7 +23,7 @@ There are multiple options for installation. After installing the extension, you
 
 Install version 0.0.1:
 
-`az extension add --source 'https://github.com/azure-nginx/azure-nginx-cli/dist/azure_nginx_cli-0.0.1-py2.py3-none-any.whl'`
+`az extension add --source 'https://github.com/azure-nginx/azure-nginx-cli/raw/master/dist/azure_nginx_cli-0.0.1-py2.py3-none-any.whl'`
 
 ## Usage
 
